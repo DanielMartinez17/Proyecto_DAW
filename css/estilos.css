@@ -1,0 +1,13 @@
+.loading {
+    height: 100vh;
+    background-image: url('loading.png');
+    background-size: cover;
+    background-position: center center;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
