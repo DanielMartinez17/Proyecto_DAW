@@ -1,6 +1,7 @@
 .loading {
-    height: 100vh;
-    background-image: url('loading.png');
+    height: 100%;
+    background-color: aquamarine;
+    background-image: url('imagenes/favicon.png');
     background-size: cover;
     background-position: center center;
 }
@@ -9,5 +10,5 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 100%;
 }
