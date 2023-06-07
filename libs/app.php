@@ -1,5 +1,6 @@
 <?
-require_once 'controllers/errores.php';
+
+require_once 'controllers/error.php';
 
 class App{
 
@@ -51,4 +52,3 @@ class App{
 }
 
 ?>
-

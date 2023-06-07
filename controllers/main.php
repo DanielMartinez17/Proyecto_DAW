@@ -1,21 +1,18 @@
 <?php
 
-class Controller{
+class Main extends Controller{
 
     function __construct(){
-        //echo "<p>Controlador base</p>";
-        $this->view = new View();
+        parent::__construct();
+        //echo "<p>Nuevo controlador Main</p>";
     }
 
-    function loadModel($model){
-        $url = 'models/'.$model.'model.php';
+    function render(){
+        $this->view->render('main/index');
+    }
 
-        if(file_exists($url)){
-            require $url;
-
-            $modelName = $model.'Model';
-            $this->model = new $modelName();
-        }
+    function saludo(){
+        echo "<p>Ejecutaste el método Saludo</p>";
     }
 }
 

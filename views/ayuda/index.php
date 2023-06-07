@@ -7,6 +7,6 @@
     <title>Document</title>
 </head>
 <body>
-    <h2>Sección de error</h2>
+    <h2>Sección de ayuda</h2>
 </body>
 </html>
