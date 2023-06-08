@@ -3,8 +3,8 @@
 class Controller{
 
     function __construct(){
-        //echo "<p>Controlador base</p>";
         $this->view = new View();
+        //echo "<p>Controlador principal</p>";
     }
 
     function loadModel($model){
@@ -12,7 +12,7 @@ class Controller{
 
         if(file_exists($url)){
             require $url;
-
+            
             $modelName = $model.'Model';
             $this->model = new $modelName();
         }

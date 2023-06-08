@@ -1,54 +1,54 @@
-<?
+<?php
 
-require_once 'controllers/error.php';
+require_once 'controllers/errores.php';
 
 class App{
 
     function __construct(){
-        //echo "<p>Nueva app</p>";
-
-        $url = isset($_GET['url']) ? $_GET['url']: null;
+        $url = isset($_GET['url'])? $_GET['url']: null;
         $url = rtrim($url, '/');
         $url = explode('/', $url);
 
-        // cuando se ingresa sin definir controlador
         if(empty($url[0])){
-            $archivoController = 'controllers/main.php';
-            require_once $archivoController;
-            $controller = new Main();
-            $controller->loadModel('main');
+            $archivoController = 'controllers/index.php';
+            require $archivoController;
+            $controller = new Index();
             $controller->render();
+            $controller->loadModel('index');
             return false;
+        }else{
+            $archivoController = 'controllers/' . $url[0] . '.php';
         }
-        $archivoController = 'controllers/' . $url[0] . '.php';
-
+ 
         if(file_exists($archivoController)){
-            require_once $archivoController;
+            require $archivoController;
 
-            // inicializar controlador
             $controller = new $url[0];
             $controller->loadModel($url[0]);
-            
-            // # elementos del arreglo
-            $nparam = sizeof($url);
 
+            // Se obtienen el número de param
+            $nparam = sizeof($url);
+            // si se llama a un método
             if($nparam > 1){
+                // hay parámetros
                 if($nparam > 2){
                     $param = [];
-                    for($i = 2; $i<$nparam; $i++){
+                    for($i = 2; $i < $nparam; $i++){
                         array_push($param, $url[$i]);
                     }
                     $controller->{$url[1]}($param);
                 }else{
+                    // solo se llama al método
                     $controller->{$url[1]}();
                 }
             }else{
-                $controller->render();
+                // si se llama a un controlador
+                $controller->render();  
             }
         }else{
-            $controller = new Error();
+            $controller = new Errores();
         }
     }
+    
 }
-
 ?>
