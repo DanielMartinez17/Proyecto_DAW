@@ -13,7 +13,7 @@
 
     <div id="main">
         <div><?php echo $this->mensaje; ?></div>
-        <h1 class="center">Actualizar <?php echo $this->categoria->id_categoria; ?></h1>
+        <h1 class="center">Actualizar <?php echo $this->categoria->nombre; ?></h1>
 
         <form action="<?php echo constant('URL'); ?>consultacategoria/actualizarCategoria/" method="POST">
             <label for="id_categoria">ID</label><br>
@@ -22,7 +22,7 @@
             <input type="text" name="nombre" value="<?php echo $this->categoria->nombre; ?>"><br>
             <label for="">Descripción</label><br>
             <input type="text" name="descripcion" value="<?php echo $this->categoria->descripcion; ?>"><br>
-            <input type="submit" value="Crear nuevo alumno">
+            <input type="submit" value="Actualizar">
         </form>
     </div>
 

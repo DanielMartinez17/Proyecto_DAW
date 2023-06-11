@@ -9,7 +9,7 @@ class Success extends Controller{
     }
 
     function nuevoAlumno(){
-        $this->view->mensaje = "Nuevo alumno creado correctamente";
+        $this->view->mensaje = "Creado correctamente";
         $this->view->render('success/index');
     }
 }

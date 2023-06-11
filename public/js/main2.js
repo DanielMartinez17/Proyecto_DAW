@@ -3,16 +3,16 @@ const items = document.querySelectorAll(".bEliminar");
 
 items.forEach(item => {
     item.addEventListener("click", function(){
-        const categoria = this.dataset.categoria;
-        console.log(categoria);
+        const producto = this.dataset.producto;
+        console.log(producto);
 
         const confirm = window.confirm("Deseas eliminar el elemento?");
 
         if(confirm){
-            httpRequest("http://localhost/Proyecto_Daw/consultacategoria/eliminarCategoria/" + categoria, function(e){
+            httpRequest("http://localhost/Proyecto_Daw/consultaproducto/eliminarProducto/" + producto, function(e){
                 console.log(this.responseText);
-                const tbody = document.querySelector("#tbody-categorias");
-                const fila  = document.querySelector("#fila-" + categoria);
+                const tbody = document.querySelector("#tbody-productos");
+                const fila  = document.querySelector("#fila-" + producto);
                 tbody.removeChild(fila);
             })
         }

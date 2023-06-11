@@ -32,38 +32,46 @@
                         <tr>
                             <th>ID</th>
                             <th>Nombre</th>
-                            <th>Descripción</th>
-                            <th>Estado</th>
+                            <th>Precio</th>
+                            <th>STOCK</th>
+                            <th>Imagen</th>
+                            <th>Categoria</th>
                             <th></th>
                             <th></th>
                         </tr>
                     </thead>
-                    <tbody id="tbody-categorias">
+                    <tbody id="tbody-productos">
                         <?php
-                        include_once 'models/categoria.php';
+                        include_once 'models/producto.php';
 
-                        foreach ($this->categorias as $row) {
-                            $categoria = new Categoria();
-                            $categoria = $row;
+                        foreach ($this->productos as $row) {
+                            $producto = new Producto();
+                            $producto = $row;
                             ?>
-                            <tr id="fila-<?php echo $categoria->id_categoria; ?>">
+                            <tr id="fila-<?php echo $producto->id_producto; ?>">
                                 <th>
-                                    <?php echo $categoria->id_categoria; ?>
+                                    <?php echo $producto->id_producto; ?>
                                 </th>
                                 <th>
-                                    <?php echo $categoria->nombre; ?>
+                                    <?php echo $producto->nombre; ?>
                                 </th>
                                 <th>
-                                    <?php echo $categoria->descripcion; ?>
+                                    <?php echo $producto->precio; ?>
                                 </th>
                                 <th>
-                                    <?php echo $categoria->estado; ?>
+                                    <?php echo $producto->stok; ?>
                                 </th>
                                 <th>
-                                <a  class='btn btn-warning' href="<?php echo constant('URL') . 'consultacategoria/verCategoria/' . $categoria->id_categoria; ?>">Actualizar</a>
+                                    <img src="/Proyecto_DAW/public/img_products/<?php echo $producto->imagen; ?>" alt="Error" style="height: 100px; width:100px;" >
+                                </th>
+                                <th>
+                                    <?php echo $producto->id_categoria; ?>
+                                </th>
+                                <th>
+                                    <a  class='btn btn-warning' href="<?php echo constant('URL') . 'consultaproducto/verProducto/' . $producto->id_producto; ?>">Actualizar</a>
                                 </th>
                                 <th><button class='btn btn-danger bEliminar'
-                                        data-categoria="<?php echo $categoria->id_categoria; ?>">Eliminar</button>
+                                        data-producto="<?php echo $producto->id_producto; ?>">Eliminar</button>
                                 </th>
                             </tr>
                         <?php } ?>
@@ -76,7 +84,7 @@
     </div>
     <?php require 'views/footer.php'; ?>
 
-    <script src="<?php echo constant('URL'); ?>/public/js/main.js"></script>
+    <script src="<?php echo constant('URL'); ?>/public/js/main2.js"></script>
 
 </body>
 
