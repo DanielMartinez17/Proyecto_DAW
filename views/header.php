@@ -29,6 +29,8 @@
     <li><a href="<?php echo constant('URL'); ?>categoria">categoria</a></li>
     <li><a href="<?php echo constant('URL'); ?>producto">Producto</a></li>
     <li><a href="<?php echo constant('URL'); ?>consultaproducto">Consulta-Producto</a></li>
+    <li><a href="<?php echo constant('URL'); ?>empleado">Empleado</a></li>
+    <li><a href="<?php echo constant('URL'); ?>consultaempleado">Consulta-Empleado</a></li>
 </ul>
 
 </div>    
