@@ -42,9 +42,9 @@ class ConsultaCategoria extends Controller{
             
 
             $this->view->categoria = $categoria;
-            $this->view->mensaje = "Alumno actualizado correctamente";
+            $this->view->mensaje = "Categoria actualizado correctamente";
         }else{
-            $this->view->mensaje = "No se pudo actualizar al alumno";
+            $this->view->mensaje = "No se pudo actualizar la categoria";
         }
         $this->view->render('consultacategoria/detalle');
     }

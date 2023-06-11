@@ -7,6 +7,12 @@
     <title>Mr. Potato</title>
     <link rel="stylesheet" href="<?php echo constant('URL'); ?>/public/css/main.css">
 
+
+    <link rel="stylesheet" href="assets\style.css">
+    <!-- Boxiocns CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+
+
     <link rel="stylesheet" href="/Proyecto_DAW/public/css/bootstrap.min.css">
     <link rel="stylesheet" href="/Proyecto_DAW/public/css/jquery.dataTables.min.css">
 
@@ -21,6 +27,135 @@
 
 </head>
 <body>
+<div class="sidebar close">
+    <div class="logo-details">
+      <i class='bx bxl-c-plus-plus'></i>
+      <span class="logo_name">Mr. Potato</span>
+    </div>
+    <ul class="nav-links">
+      <li>
+        <a href="#">
+          <i class='bx bx-grid-alt' ></i>
+          <span class="link_name">Inicio</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="#">Inicio</a></li>
+        </ul>
+      </li>
+
+      <li>
+        <a href="<?php echo constant('URL'); ?>consultacategoria">
+          <i class='bx bx-collection' ></i>
+          <span class="link_name">Categoria</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="<?php echo constant('URL'); ?>consultacategoria">Categoria</a></li>
+        </ul>
+      </li>
+
+      <li>
+        <a href="<?php echo constant('URL'); ?>consultaproducto">
+          <i class='bx bx-book-alt' ></i>
+          <span class="link_name">Producto</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="<?php echo constant('URL'); ?>consultaproducto">Producto</a></li>
+        </ul>
+      </li>
+
+      <li>
+        <a href="<?php echo constant('URL'); ?>consultaempleado">
+          <i class='bx bx-user' ></i>
+          <span class="link_name">Empleado</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="<?php echo constant('URL'); ?>consultaempleado">Empleado</a></li>
+        </ul>
+      </li>
+
+      <li>
+        <a href="#">
+          <i class='bx bx-pie-chart-alt-2' ></i>
+          <span class="link_name">Analytics</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="#">Analytics</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">
+          <i class='bx bx-line-chart' ></i>
+          <span class="link_name">Chart</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="#">Chart</a></li>
+        </ul>
+      </li>
+      <li>
+        <div class="iocn-link">
+          <a href="#">
+            <i class='bx bx-plug' ></i>
+            <span class="link_name">Plugins</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow' ></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name" href="#">Plugins</a></li>
+          <li><a href="#">UI Face</a></li>
+          <li><a href="#">Pigments</a></li>
+          <li><a href="#">Box Icons</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">
+          <i class='bx bx-compass' ></i>
+          <span class="link_name">Explore</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="#">Explore</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">
+          <i class='bx bx-history'></i>
+          <span class="link_name">History</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="#">History</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">
+          <i class='bx bx-cog' ></i>
+          <span class="link_name">Setting</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="#">Setting</a></li>
+        </ul>
+      </li>
+      <li>
+    <div class="profile-details">
+      <div class="profile-content">
+        <img src="image/profile.jpg" alt="profileImg">
+      </div>
+      <div class="name-job">
+        <div class="profile_name">Prem Shahi</div>
+        <div class="job">Web Desginer</div>
+      </div>
+      <i class='bx bx-log-out' ></i>
+    </div>
+  </li>
+</ul>
+  </div>
+  <section class="home-section">
+    <div class="home-content">
+      <i class='bx bx-menu' ></i>
+      <span class="text">Mr. Potato</span>
+    </div>
+  </section>
+
+
+<!--
 <div id="header">
 <ul>
     <li><a href="<?php echo constant('URL'); ?>index">Inicio</a></li>
@@ -33,6 +168,8 @@
     <li><a href="<?php echo constant('URL'); ?>consultaempleado">Consulta-Empleado</a></li>
 </ul>
 
-</div>    
+</div> 
+-->
+<script src="assets\script.js"></script>
 </body>
 </html>

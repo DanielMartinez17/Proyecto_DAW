@@ -10,7 +10,7 @@ class Producto extends Controller{
     }
 
     function render(){
-        $this->view->render('producto/index');
+        $this->view->render('success/index');
     }
 
     function agregarProd(){
@@ -22,12 +22,14 @@ class Producto extends Controller{
         $id_categoria = $_POST['id_categoria'];
 
         if($this->model->insert(['nombre' => $nombre, 'precio' => $precio, 'stok' => $stok, 'imagen' => $imagen, 'id_categoria' => $id_categoria, 'estado' => 1])){
-            //header('location: '.constant('URL').'nuevo/alumnoCreado');
             $this->view->mensaje = "Categoría creado correctamente";
-            $this->view->render('producto/index');
+            header('location: '.constant('URL').'consultaproducto');
+            //$this->view->render('success/index');
         }else{
+            
             $this->view->mensaje = "La categoría ya está registrada";
-            $this->view->render('producto/index');
+            header('location: '.constant('URL').'consultaproducto');
+            //$this->view->render('success/index');
         }
     }
 

@@ -18,11 +18,13 @@ class Categoria extends Controller{
         $descripcion  = $_POST['descripcion'];
 
         if($this->model->insert(['nombre' => $nombre, 'descripcion' => $descripcion])){
-            //header('location: '.constant('URL').'nuevo/alumnoCreado');
+           
             $this->view->mensaje = "Categoría creado correctamente";
-            $this->view->render('categoria/index');
+            header('location: '.constant('URL').'consultacategoria');
+            //$this->view->render('categoria/index');
         }else{
             $this->view->mensaje = "La categoría ya está registrada";
+            header('location: '.constant('URL').'consultacategoria');
             $this->view->render('categoria/index');
         }
     }
