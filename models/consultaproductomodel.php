@@ -59,8 +59,6 @@ class ConsultaProductoModel extends Model
 
     public function update($item)
     {
-        echo $item['id_producto'];
-        echo $item['imagen'];
 
         if ($item['imagen'] != "") {
             $query = $this->db->connect()->prepare('UPDATE producto SET nombre = :nombre, precio = :precio, stok =:stok, imagen = :imagen, id_categoria = :id_categoria WHERE id_producto = :id_producto');

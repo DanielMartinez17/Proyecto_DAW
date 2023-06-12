@@ -1,4 +1,5 @@
 <?php
+
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -45,14 +46,15 @@ $conn->close();
 
 <body>
 
+<div class="container" style="padding-left: 10%; padding-top:20px;">
     <a class='btn btn-info'
     href="<?php echo constant('URL'); ?>consultaproducto"><i
             class="fa-solid fa-pen-to-square fa-xl" style="color: #ffffff;"></i>
         Regresar</a>
-
+</div>
     <section class="home-section">
         <div class="home-content">
-            <div class="container mt-5">
+            <div class="container mt-5" style="padding-left: 25%;">
                 <div>
                     <?php echo $this->mensaje; ?>
                 </div>

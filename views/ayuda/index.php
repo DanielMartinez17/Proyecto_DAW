@@ -1,3 +1,13 @@
+<?php
+session_start();
+//session_destroy();
+if(!isset($_SESSION['user_id'])){
+    header('Location: login.php');
+    exit;
+} else {
+     
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

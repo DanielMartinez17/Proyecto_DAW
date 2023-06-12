@@ -1,5 +1,5 @@
 <?php
-
+include 'libs/encript_desencipt.php';
 
 class Empleado extends Controller{
 
@@ -15,21 +15,23 @@ class Empleado extends Controller{
     }
 
     function agregarEmp(){
-        include 'libs/encript_desencipt.php';
+        $encriptar = new cls_encriptar_desencriptar();
 
         $nombres    = $_POST['nombres'];
         $apellidos  = $_POST['apellidos'];
         $area_trabajo    = $_POST['area_trabajo'];
         $usuario  = $_POST['usuario'];
-        $contrasena =  $encriptar($_POST['contrasena']);
+        $contrasena =  $encriptar->encrypt($_POST['contrasena']);
 
         if($this->model->insert(['nombres' => $nombres, 'apellidos' => $apellidos, 'area_trabajo' => $area_trabajo, 'usuario' => $usuario, 'contrasena' => $contrasena])){
-            //header('location: '.constant('URL').'nuevo/alumnoCreado');
+            
             $this->view->mensaje = "Categoría creado correctamente";
-            $this->view->render('empleado/index');
+            header('location: '.constant('URL').'consultaempleado');
+            //$this->view->render('empleado/index');
         }else{
             $this->view->mensaje = "La categoría ya está registrada";
-            $this->view->render('empleado/index');
+            header('location: '.constant('URL').'consultaempleado');
+            //$this->view->render('empleado/index');
         }
     }
 

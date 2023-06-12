@@ -25,7 +25,6 @@ class ConsultaEmpleado extends Controller{
     }
 
     function actualizarEmpleado($param = null){
-        $encriptar = new cls_encriptar_desencriptar();
 
         session_start();
         $id_empleado = $_SESSION["id_verEmpleado"];
@@ -33,7 +32,7 @@ class ConsultaEmpleado extends Controller{
         $apellidos  = $_POST['apellidos'];
         $area_trabajo    = $_POST['area_trabajo'];
         $usuario  = $_POST['usuario'];
-        $contrasena    = $encriptar->encrypt($_POST['contrasena']);
+        $contrasena = $_POST['contrasena'];
 
         unset($_SESSION['id_verCategoria']);
 

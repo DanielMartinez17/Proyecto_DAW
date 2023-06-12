@@ -1,3 +1,14 @@
+<?php
+session_start();
+//session_destroy();
+if(!isset($_SESSION['user_id'])){
+    header('Location: login.php');
+    exit;
+} else {
+     
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,10 +40,20 @@
 </head>
 <body>
 
-    <?php require 'views/header.php'; ?>
+    <?php 
+
+    $tipo = $_SESSION['user_id'];
+
+    if ($tipo['area_trabajo'] == "Administracion") {
+        require 'views/header.php'; 
+    }elseif ($tipo['area_trabajo'] == "Cocina") {
+        require 'views/header2.php';
+    }
+    ?>
 
     <div id="main">
         <h1 class="center">Bienvenido al sitio</h1>
+        
     </div>
 
     <?php require 'views/footer.php'; ?>
