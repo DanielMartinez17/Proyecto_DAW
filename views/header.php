@@ -33,6 +33,7 @@
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
 
+
 </head>
 
 <body>
@@ -44,126 +45,148 @@
     </div>
     <ul class="nav-links">
       <li>
-        <a href="#">
+        <a href="<?php echo constant('URL'); ?>index">
           <i class='bx bx-grid-alt'></i>
           <span class="link_name">Inicio</span>
         </a>
         <ul class="sub-menu blank">
-          <li><a class="link_name" href="#">Inicio</a></li>
+          <li><a class="link_name" href="<?php echo constant('URL'); ?>index"">Inicio</a></li>
         </ul>
       </li>
 
       <li>
-        <a href="<?php echo constant('URL'); ?>consultacategoria">
-          <i class='bx bx-collection'></i>
-          <span class="link_name">Categoria</span>
-        </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href="<?php echo constant('URL'); ?>consultacategoria">Categoria</a></li>
-        </ul>
-      </li>
+        <a href=" <?php echo constant('URL'); ?>consultacategoria">
+              <i class='bx bx-collection'></i>
+              <span class="link_name">Categoria</span>
+            </a>
+            <ul class="sub-menu blank">
+              <li><a class="link_name" href="<?php echo constant('URL'); ?>consultacategoria">Categoria</a></li>
+            </ul>
+          </li>
 
-      <li>
-        <a href="<?php echo constant('URL'); ?>consultaproducto">
-          <i class='bx bx-book-alt'></i>
-          <span class="link_name">Producto</span>
-        </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href="<?php echo constant('URL'); ?>consultaproducto">Producto</a></li>
-        </ul>
-      </li>
+          <li>
+            <a href="<?php echo constant('URL'); ?>consultaproducto">
+              <i class='bx bx-book-alt'></i>
+              <span class="link_name">Producto</span>
+            </a>
+            <ul class="sub-menu blank">
+              <li><a class="link_name" href="<?php echo constant('URL'); ?>consultaproducto">Producto</a></li>
+            </ul>
+          </li>
 
-      <li>
-        <a href="<?php echo constant('URL'); ?>consultaempleado">
-          <i class='bx bx-user'></i>
-          <span class="link_name">Empleado</span>
-        </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href="<?php echo constant('URL'); ?>consultaempleado">Empleado</a></li>
-        </ul>
-      </li>
+          <li>
+            <a href="<?php echo constant('URL'); ?>consultaempleado">
+              <i class='bx bx-user'></i>
+              <span class="link_name">Empleado</span>
+            </a>
+            <ul class="sub-menu blank">
+              <li><a class="link_name" href="<?php echo constant('URL'); ?>consultaempleado">Empleado</a></li>
+            </ul>
+          </li>
 
-      <li>
-        <a href="#">
-          <i class='bx bx-pie-chart-alt-2'></i>
-          <span class="link_name">Analytics</span>
-        </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href="#">Analytics</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="#">
-          <i class='bx bx-line-chart'></i>
-          <span class="link_name">Chart</span>
-        </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href="#">Chart</a></li>
-        </ul>
-      </li>
-      <li>
-        <div class="iocn-link">
-          <a href="#">
-            <i class='bx bx-plug'></i>
-            <span class="link_name">Plugins</span>
-          </a>
-          <i class='bx bxs-chevron-down arrow'></i>
-        </div>
-        <ul class="sub-menu">
-          <li><a class="link_name" href="#">Plugins</a></li>
-          <li><a href="#">UI Face</a></li>
-          <li><a href="#">Pigments</a></li>
-          <li><a href="#">Box Icons</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="#">
-          <i class='bx bx-compass'></i>
-          <span class="link_name">Explore</span>
-        </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href="#">Explore</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="#">
-          <i class='bx bx-history'></i>
-          <span class="link_name">History</span>
-        </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href="#">History</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="#">
-          <i class='bx bx-cog'></i>
-          <span class="link_name">Setting</span>
-        </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href="#">Setting</a></li>
-        </ul>
-      </li>
-      <li>
-        <div class="profile-details">
-          <div class="profile-content">
-            <img src="assets/image/profile.jpg" alt="profileImg">
-          </div>
-          <?php
-          $tipo = $_SESSION['user_id'];
-          ?>
+          <li>
+            <a href="<?php echo constant('URL'); ?>carro">
+              <i class='bx bx-cart'></i>
+              <span class="link_name">Venta</span>
+            </a>
+            <ul class="sub-menu blank">
+              <li><a class="link_name" href="<?php echo constant('URL'); ?>carro">Venta</a></li>
+            </ul>
+          </li>
 
-          <div class="name-job">
-            <div class="profile_name">
-              <?php echo $tipo['nombres'] . " " . $tipo['apellidos']; ?>
+          <li>
+            <a href="#">
+              <i class='bx bx-pie-chart-alt-2'></i>
+              <span class="link_name">Analytics</span>
+            </a>
+            <ul class="sub-menu blank">
+              <li><a class="link_name" href="#">Analytics</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">
+              <i class='bx bx-line-chart'></i>
+              <span class="link_name">Chart</span>
+            </a>
+            <ul class="sub-menu blank">
+              <li><a class="link_name" href="#">Chart</a></li>
+            </ul>
+          </li>
+          <li>
+            <div class="iocn-link">
+              <a href="#">
+                <i class='bx bx-plug'></i>
+                <span class="link_name">Plugins</span>
+              </a>
+              <i class='bx bxs-chevron-down arrow'></i>
             </div>
-            <div class="job">
-              <?php echo $tipo['area_trabajo']; ?>
+            <ul class="sub-menu">
+              <li><a class="link_name" href="#">Plugins</a></li>
+              <li><a href="#">UI Face</a></li>
+              <li><a href="#">Pigments</a></li>
+              <li><a href="#">Box Icons</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">
+              <i class='bx bx-compass'></i>
+              <span class="link_name">Explore</span>
+            </a>
+            <ul class="sub-menu blank">
+              <li><a class="link_name" href="#">Explore</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">
+              <i class='bx bx-history'></i>
+              <span class="link_name">History</span>
+            </a>
+            <ul class="sub-menu blank">
+              <li><a class="link_name" href="#">History</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">
+              <i class='bx bx-cog'></i>
+              <span class="link_name">Setting</span>
+            </a>
+            <ul class="sub-menu blank">
+              <li><a class="link_name" href="#">Setting</a></li>
+            </ul>
+          </li>
+          <li>
+            <div class="profile-details">
+              <div class="profile-content">
+                <img src="assets/image/profile.jpg" alt="profileImg">
+              </div>
+              <?php
+              $tipo = $_SESSION['user_id'];
+              ?>
+
+              <div class="name-job">
+                <div class="profile_name">
+                  <?php echo $tipo['nombres']; ?><br>
+                  <?php echo $tipo['apellidos']; ?>
+                </div>
+                <div class="job">
+                  <?php echo $tipo['area_trabajo']; ?>
+                </div>
+              </div>
+              <button onclick="confirmarAccion()"><i class='bx bx-log-out'></i></button>
+              <script type="text/javascript">
+                // Función que muestra la alerta y ejecuta el código PHP
+                function confirmarAccion() {
+                  var aceptar = confirm("¿Estás seguro de que quieres cerrar la sesión?");
+                  if (aceptar) {
+                    // Redireccionar a archivo con codigo PHP para destruir la sesión
+                    window.location.href = "/Proyecto_DAW/views/cerrar_sesion.php";
+                  }
+                }
+              </script>
+
             </div>
-          </div>
-          <i class='bx bx-log-out'></i>
-        </div>
-      </li>
-    </ul>
+          </li>
+        </ul>
   </div>
   <section class="home-section">
     <div class="home-content">
@@ -189,6 +212,7 @@
 </div> 
 -->
   <script src="assets\script.js"></script>
+
 </body>
 
 </html>

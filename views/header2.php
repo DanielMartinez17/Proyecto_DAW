@@ -44,12 +44,12 @@
         </div>
         <ul class="nav-links">
             <li>
-                <a href="#">
+                <a href="<?php echo constant('URL'); ?>index">
                     <i class='bx bx-grid-alt'></i>
                     <span class="link_name">Inicio</span>
                 </a>
                 <ul class="sub-menu blank">
-                    <li><a class="link_name" href="#">Inicio</a></li>
+                    <li><a class="link_name" href="<?php echo constant('URL'); ?>index">Inicio</a></li>
                 </ul>
             </li>
 
