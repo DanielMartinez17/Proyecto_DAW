@@ -23,8 +23,15 @@ include "php/conection.php";
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
+				
 				<h1>Productos</h1>
+				<a class='btn btn-info' href="<?php echo constant('URL'); ?>index"><i
+							class="fa-solid fa-pen-to-square fa-xl" style="color: #ffffff;"></i>
+						Regresar</a>
 				<a href="<?php echo constant('URL'); ?>carro/verCarrito" class="btn btn-warning">Ver Carrito</a>
+				
+					
+				
 				<br><br>
 				<?php
 				/*
@@ -47,8 +54,7 @@ include "php/conection.php";
 											</p>
 										</div>
 										<img src="/Proyecto_DAW/public/img_products/<?php echo $row->imagen; ?>"
-											class="card-img-top" alt="<?php echo $row->imagen; ?>"
-											 style="height: 200px;" />
+											class="card-img-top" alt="<?php echo $row->imagen; ?>" style="height: 200px;" />
 										<div class="card-body">
 
 											<div class="d-flex justify-content-between mb-3">
@@ -72,37 +78,42 @@ include "php/conection.php";
 													?>
 												</p>
 											</div>
-											<div class="d-flex justify-content-between mb-3">
-												<?php
-												$found = false;
+											<?php
+											if ($row->stok > 0):
 
-												if (isset($_SESSION["cart"])) {
-													foreach ($_SESSION["cart"] as $c) {
-														if ($c["product_id"] == $row->id_producto) {
-															$found = true;
-															break;
+												?>
+												<div class="d-flex justify-content-between mb-3">
+													<?php
+													$found = false;
+
+													if (isset($_SESSION["cart"])) {
+														foreach ($_SESSION["cart"] as $c) {
+															if ($c["product_id"] == $row->id_producto) {
+																$found = true;
+																break;
+															}
 														}
 													}
-												}
-												?>
-												<?php if ($found): ?>
-													<a href="<?php echo constant('URL'); ?>carro/verCarrito"
-														class="btn btn-info">Agregado</a>
-												<?php else: ?>
-													<form class="form-inline" method="post">
-														<input type="hidden" name="product_id"
-															value="<?php echo $row->id_producto; ?>">
-														<div class="form-group">
-															<input type="number" name="q" value="1" style="width:100px;" min="1"
-																class="form-control" placeholder="Cantidad">
-														</div>
-														<button type="submit" name="ok" class="btn btn-primary">Agregar al
-															carrito</button>
-													</form>
-												<?php endif; ?>
+													?>
+													<?php if ($found): ?>
+														<a href="<?php echo constant('URL'); ?>carro/verCarrito"
+															class="btn btn-info">Agregado</a>
+													<?php else: ?>
+														<form class="form-inline" method="post">
+															<input type="hidden" name="product_id"
+																value="<?php echo $row->id_producto; ?>">
+															<div class="form-group">
+																<input type="number" name="q" value="1" style="width:100px;" min="1"
+																	class="form-control" placeholder="Cantidad">
+															</div>
+															<button type="submit" name="ok" class="btn btn-primary">Agregar al
+																carrito</button>
+														</form>
+													<?php endif; ?>
 
-												
-											</div>
+
+												</div>
+											<?php endif; ?>
 										</div>
 									</div>
 								</div>
@@ -143,7 +154,7 @@ include "php/conection.php";
 							}
 						}
 					}
-					print "<script>window.location='".constant('URL')."carro/verProductos';</script>";
+					print "<script>window.location='" . constant('URL') . "carro/verProductos';</script>";
 				}
 
 				?>

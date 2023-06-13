@@ -137,12 +137,12 @@ include "php/conection.php";
 							$cart_id = $con->insert_id;
 	
 							foreach ($_SESSION["cart"] as $c) {
-								$q1 = $con->query("INSERT INTO detalle_venta(product_id,q,cart_id) value($c[product_id],$c[q],$cart_id)");
+								$q1 = $con->query("INSERT INTO detalle_venta(id_venta,id_product,cantidad) value($cart_id, $c[product_id],$c[q])");
 							}
 							unset($_SESSION["cart"]);
 						}
 					}
-					print "<script>alert('Venta procesada exitosamente');window.location='../products.php';</script>";
+					print "<script>alert('Venta procesada exitosamente');window.location='" . constant('URL') . "carro/verCarrito';</script>";
 				}
 				?>
 

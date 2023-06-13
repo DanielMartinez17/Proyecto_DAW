@@ -15,7 +15,7 @@ class ConsultaEmpleadoModel extends Model
         $items = [];
 
         try {
-            $query = $this->db->connect()->query('SELECT * FROM empleado');
+            $query = $this->db->connect()->query('SELECT * FROM empleado WHERE estado = 1');
 
             while ($row = $query->fetch()) {
                 $item = new Empleado();
@@ -141,7 +141,7 @@ class ConsultaEmpleadoModel extends Model
 
     public function delete($id)
     {
-        $query = $this->db->connect()->prepare('DELETE FROM empleado WHERE id_empleado = :id_empleado');
+        $query = $this->db->connect()->prepare('UPDATE empleado SET estado = 0 WHERE id_empleado = :id_empleado');
         try {
             $query->execute([
                 'id_empleado' => $id

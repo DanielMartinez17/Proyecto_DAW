@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 //session_destroy();
 if (!isset($_SESSION['user_id'])) {
@@ -7,6 +8,32 @@ if (!isset($_SESSION['user_id'])) {
 } else {
 
 }
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "mr_potato";
+
+// Crear conexión
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Verificar conexión
+if ($conn->connect_error) {
+    die("Conexión fallida: " . $conn->connect_error);
+}
+
+// Realizar consulta SQL
+$sql = "SELECT COUNT(id_venta) AS cantidad_ventas FROM venta WHERE fecha BETWEEN '2023-06-01 00:00:00' AND '2023-06-30 23:59:59'";
+$resultado = $conn->query($sql);
+
+$sql2 = "SELECT SUM(p.precio*v.cantidad)AS total FROM detalle_venta v INNER JOIN producto p ON v.id_product = p.id_producto";
+$resultado2 = $conn->query($sql2);
+
+$sql3 = "SELECT COUNT(id_empleado) AS empleado FROM empleado WHERE estado = 1";
+$resultado3 = $conn->query($sql3);
+
+$sql4 = "SELECT COUNT(nombre) AS categoria FROM categoria WHERE estado = 1";
+$resultado4 = $conn->query($sql4);
+
 ?>
 
 <!DOCTYPE html>
@@ -61,24 +88,25 @@ if (!isset($_SESSION['user_id'])) {
 
     <?php
 
-    $tipo = $_SESSION['user_id'];
+    /*$tipo = $_SESSION['user_id'];
 
     if ($tipo['area_trabajo'] == "Administracion") {
         require 'views/header.php';
     } elseif ($tipo['area_trabajo'] == "Cocina") {
         require 'views/header2.php';
-    }
+    }*/
+    require 'views/header.php';
     ?>
 
 
     <section class="home-section">
-    <div id="main">
-                <h1 class="center"><strong>   Bienvenido!</strong></h1>
-                <h2 style="color: #66202A;" class="center">Vive, sueña y come papas</h2>
+        <div id="main">
+            <h1 class="center"><strong> Bienvenido!</strong></h1>
+            <h2 style="color: #66202A;" class="center">Vive, sueña y come papas</h2>
 
-            </div>
+        </div>
         <div style="padding-left: 15%;" class="home-content">
-            
+
             <br><br><br><br><br>
             <main class="h-full overflow-y-auto">
                 <div class="container px-6 mx-auto grid">
@@ -96,10 +124,13 @@ if (!isset($_SESSION['user_id'])) {
                             </div>
                             <div>
                                 <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
-                                    Total clients
+                                    Empleados
                                 </p>
                                 <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                                    6389
+                                    <?php
+                                    $resultado3 = $resultado3->fetch_assoc();
+                                    echo $resultado3['empleado'];
+                                    ?>
                                 </p>
                             </div>
                         </div>
@@ -115,10 +146,14 @@ if (!isset($_SESSION['user_id'])) {
                             </div>
                             <div>
                                 <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
-                                    Account balance
+                                    Entradas
                                 </p>
                                 <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                                    $ 46,760.89
+                                    $
+                                    <?php
+                                    $resultado2 = $resultado2->fetch_assoc();
+                                    echo $resultado2['total'];
+                                    ?>
                                 </p>
                             </div>
                         </div>
@@ -134,10 +169,13 @@ if (!isset($_SESSION['user_id'])) {
                             </div>
                             <div>
                                 <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
-                                    New sales
+                                    Ventas del mes
                                 </p>
                                 <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                                    376
+                                    <?php
+                                    $resultado = $resultado->fetch_assoc();
+                                    echo $resultado['cantidad_ventas'];
+                                    ?>
                                 </p>
                             </div>
                         </div>
@@ -153,56 +191,36 @@ if (!isset($_SESSION['user_id'])) {
                             </div>
                             <div>
                                 <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
-                                    Pending contacts
+                                    Categorias
                                 </p>
                                 <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                                    35
+                                    <?php
+                                    $resultado4 = $resultado4->fetch_assoc();
+                                    echo $resultado4['categoria'];
+                                    ?>
                                 </p>
                             </div>
                         </div>
                     </div>
 
                     <!-- Charts -->
-                    <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
-                        Charts
-                    </h2>
+                    
                     <div class="grid gap-6 mb-8 md:grid-cols-2">
+                    
                         <div class="min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
-                            <h4 class="mb-4 font-semibold text-gray-800 dark:text-gray-300">
-                                Revenue
-                            </h4>
-                            <canvas id="pie"></canvas>
-                            <div class="flex justify-center mt-4 space-x-3 text-sm text-gray-600 dark:text-gray-400">
-                                <!-- Chart legend -->
-                                <div class="flex items-center">
-                                    <span class="inline-block w-3 h-3 mr-1 bg-blue-500 rounded-full"></span>
-                                    <span>Shirts</span>
-                                </div>
-                                <div class="flex items-center">
-                                    <span class="inline-block w-3 h-3 mr-1 bg-teal-600 rounded-full"></span>
-                                    <span>Shoes</span>
-                                </div>
-                                <div class="flex items-center">
-                                    <span class="inline-block w-3 h-3 mr-1 bg-purple-600 rounded-full"></span>
-                                    <span>Bags</span>
-                                </div>
+                            <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
+                                Productos por categoría
+                            </h2>
+                            <div>
+                                <canvas id="myChart"></canvas>
                             </div>
                         </div>
                         <div class="min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
-                            <h4 class="mb-4 font-semibold text-gray-800 dark:text-gray-300">
-                                Traffic
-                            </h4>
-                            <canvas id="line"></canvas>
-                            <div class="flex justify-center mt-4 space-x-3 text-sm text-gray-600 dark:text-gray-400">
-                                <!-- Chart legend -->
-                                <div class="flex items-center">
-                                    <span class="inline-block w-3 h-3 mr-1 bg-teal-600 rounded-full"></span>
-                                    <span>Organic</span>
-                                </div>
-                                <div class="flex items-center">
-                                    <span class="inline-block w-3 h-3 mr-1 bg-purple-600 rounded-full"></span>
-                                    <span>Paid</span>
-                                </div>
+                            <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
+                                Productos vendidos por categoría
+                            </h2>
+                            <div>
+                                <canvas id="myChart2"></canvas>
                             </div>
                         </div>
                     </div>
@@ -210,6 +228,99 @@ if (!isset($_SESSION['user_id'])) {
             </main>
         </div>
     </section>
-    </ </body>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <?php
+    $sint = "SELECT c.nombre, COUNT(p.id_producto) AS cantidad
+    FROM categoria c 
+    INNER JOIN producto p 
+    ON c.id_categoria = p.id_categoria 
+    GROUP BY c.nombre
+    ";
+    $categorias = $conn->query($sint);
+    ?>
+    <script>
+        const ctx = document.getElementById('myChart');
+
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: [
+                    <?php
+                    foreach ($categorias as $row) {
+                        $a = $row['nombre'];
+                        echo "'" . $a . "',";
+                    }
+                    ?>
+
+                ],
+                datasets: [{
+                    label: 'productos',
+                    data: [
+                        <?php
+                    foreach ($categorias as $row) {
+                        $a = $row['cantidad'];
+                        echo "" . $a . ",";
+                    }
+                    ?>],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+
+    <?php
+    $sint = "SELECT c.nombre AS categoria, COUNT(dv.id_detalle) AS cantidad
+    FROM categoria c 
+    JOIN producto p ON c.id_categoria = p.id_categoria 
+    JOIN detalle_venta dv ON p.id_producto = dv.id_product
+    GROUP BY c.nombre;
+    ";
+    $ventas = $conn->query($sint);
+    ?>
+    <script>
+        const ctx2 = document.getElementById('myChart2');
+
+        new Chart(ctx2, {
+            type: 'bar',
+            data: {
+                labels: [
+                    <?php
+                    foreach ($ventas as $row) {
+                        $a = $row['categoria'];
+                        echo "'" . $a . "',";
+                    }
+                    ?>
+
+                ],
+                datasets: [{
+                    label: 'ventas',
+                    data: [
+                        <?php
+                    foreach ($ventas as $row) {
+                        $a = $row['cantidad'];
+                        echo "" . $a . ",";
+                    }
+                    ?>],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+
+</body>
 
 </html>

@@ -27,7 +27,7 @@ class ConsultaProducto extends Controller{
         session_start();
 
         if (isset($_FILES['imagen'])) {
-            $ruta = "D:/xampp/htdocs/Proyecto_DAW/public/img_products/";
+            $ruta = "/xampp/htdocs/Proyecto_DAW/public/img_products/";
             $nombre_temporal = $_FILES['imagen']['tmp_name'];
             $nombre_imagen = $_FILES['imagen']['name'];
             move_uploaded_file($nombre_temporal, $ruta . $nombre_imagen);

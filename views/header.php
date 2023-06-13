@@ -93,71 +93,25 @@
               <li><a class="link_name" href="<?php echo constant('URL'); ?>carro">Venta</a></li>
             </ul>
           </li>
-
-          <li>
-            <a href="#">
-              <i class='bx bx-pie-chart-alt-2'></i>
-              <span class="link_name">Analytics</span>
-            </a>
-            <ul class="sub-menu blank">
-              <li><a class="link_name" href="#">Analytics</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="#">
-              <i class='bx bx-line-chart'></i>
-              <span class="link_name">Chart</span>
-            </a>
-            <ul class="sub-menu blank">
-              <li><a class="link_name" href="#">Chart</a></li>
-            </ul>
-          </li>
           <li>
             <div class="iocn-link">
               <a href="#">
                 <i class='bx bx-plug'></i>
-                <span class="link_name">Plugins</span>
+                <span class="link_name">Informe</span>
               </a>
               <i class='bx bxs-chevron-down arrow'></i>
             </div>
             <ul class="sub-menu">
-              <li><a class="link_name" href="#">Plugins</a></li>
-              <li><a href="#">UI Face</a></li>
+              <li><a class="link_name" href="#">Informe</a></li>
+              <li><a href="<?php echo constant('URL'); ?>informe" target="_blank">Empleados activos</a></li>
               <li><a href="#">Pigments</a></li>
               <li><a href="#">Box Icons</a></li>
             </ul>
           </li>
           <li>
-            <a href="#">
-              <i class='bx bx-compass'></i>
-              <span class="link_name">Explore</span>
-            </a>
-            <ul class="sub-menu blank">
-              <li><a class="link_name" href="#">Explore</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="#">
-              <i class='bx bx-history'></i>
-              <span class="link_name">History</span>
-            </a>
-            <ul class="sub-menu blank">
-              <li><a class="link_name" href="#">History</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="#">
-              <i class='bx bx-cog'></i>
-              <span class="link_name">Setting</span>
-            </a>
-            <ul class="sub-menu blank">
-              <li><a class="link_name" href="#">Setting</a></li>
-            </ul>
-          </li>
-          <li>
             <div class="profile-details">
               <div class="profile-content">
-                <img src="assets/image/profile.jpg" alt="profileImg">
+                <img src="assets/image/profile.png" alt="profileImg">
               </div>
               <?php
               $tipo = $_SESSION['user_id'];
@@ -172,7 +126,7 @@
                   <?php echo $tipo['area_trabajo']; ?>
                 </div>
               </div>
-              <button onclick="confirmarAccion()"><i class='bx bx-log-out'></i></button>
+              <button onclick="confirmarAccion()" style="background-color: #b02a37;" ><i class='bx bx-log-out'></i></button>
               <script type="text/javascript">
                 // Función que muestra la alerta y ejecuta el código PHP
                 function confirmarAccion() {

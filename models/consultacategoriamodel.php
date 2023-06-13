@@ -11,7 +11,7 @@ class ConsultaCategoriaModel extends Model{
     public function get(){
         $items = [];
         try{
-            $query = $this->db->connect()->query('SELECT * FROM categoria');
+            $query = $this->db->connect()->query('SELECT * FROM categoria WHERE estado = 1');
             
             while($row = $query->fetch()){
                 $item = new Categoria();
@@ -65,7 +65,7 @@ class ConsultaCategoriaModel extends Model{
     }
 
     public function delete($id){
-        $query = $this->db->connect()->prepare('DELETE FROM categoria WHERE id_categoria = :id_categoria');
+        $query = $this->db->connect()->prepare('UPDATE categoria SET estado = 0 WHERE id_categoria = :id_categoria');
         try{
             $query->execute([
                 'id_categoria' => $id
