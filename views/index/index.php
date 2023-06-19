@@ -45,6 +45,8 @@ $resultado4 = $conn->query($sql4);
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <title>Mr. Potato</title>
+    <link rel="shortcut icon" type="image/png" href="../logo.ico"/>
+
     <link rel="stylesheet" href="<?php echo constant('URL'); ?>/public/css/main.css">
 
 
@@ -88,14 +90,15 @@ $resultado4 = $conn->query($sql4);
 
     <?php
 
-    /*$tipo = $_SESSION['user_id'];
+    $tipo = $_SESSION['user_id'];
 
     if ($tipo['area_trabajo'] == "Administracion") {
         require 'views/header.php';
-    } elseif ($tipo['area_trabajo'] == "Cocina") {
+    } elseif ($tipo['area_trabajo'] == "Atencion") {
         require 'views/header2.php';
-    }*/
-    require 'views/header.php';
+    }elseif ($tipo['area_trabajo'] == "Gerencia") {
+        require 'views/header3.php';
+    }
     ?>
 
 
@@ -234,6 +237,7 @@ $resultado4 = $conn->query($sql4);
     FROM categoria c 
     INNER JOIN producto p 
     ON c.id_categoria = p.id_categoria 
+    WHERE p.estado = 1
     GROUP BY c.nombre
     ";
     $categorias = $conn->query($sint);
@@ -280,6 +284,7 @@ $resultado4 = $conn->query($sql4);
     FROM categoria c 
     JOIN producto p ON c.id_categoria = p.id_categoria 
     JOIN detalle_venta dv ON p.id_producto = dv.id_product
+    WHERE p.estado = 1
     GROUP BY c.nombre;
     ";
     $ventas = $conn->query($sint);

@@ -6,8 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Mr. Potato</title>
-  <link rel="shortcut icon" type="image/png" href="../logo.ico"/>
-
+  <link rel="shortcut icon" type="image/png" href="./logo.ico"/>
   <link rel="stylesheet" href="<?php echo constant('URL'); ?>/public/css/main.css">
 
 
@@ -83,6 +82,21 @@
             </a>
             <ul class="sub-menu blank">
               <li><a class="link_name" href="<?php echo constant('URL'); ?>consultaempleado">Empleado</a></li>
+            </ul>
+          </li>
+          <li>
+            <div class="iocn-link">
+              <a href="#">
+                <i class='bx bxs-report'></i>
+                <span class="link_name">Informe</span>
+              </a>
+              <i class='bx bxs-chevron-down arrow'></i>
+            </div>
+            <ul class="sub-menu">
+              <li><a class="link_name" href="#">Informe</a></li>
+              <li><a href="<?php echo constant('URL'); ?>informe" target="_blank">Empleados activos</a></li>
+              <li><a href="<?php echo constant('URL'); ?>informe/verVenta" target="_blank">Ventas por categoría</a></li>
+              <li><a href="<?php echo constant('URL'); ?>informe/verProducto" target="_blank">Productos por categoría</a></li>
             </ul>
           </li>
           <li>

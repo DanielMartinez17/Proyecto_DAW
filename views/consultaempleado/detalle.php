@@ -35,7 +35,7 @@
             <?php echo $this->mensaje; ?>
         </div>
         <div class="row">
-            <h1 class="center">Actualizar
+            <h1  align ="center">Actualizar
                 <?php echo $this->empleado->nombres; ?>
                 <?php echo $this->empleado->apellidos; ?>
             </h1>
@@ -67,7 +67,6 @@
                         value="<?php echo $this->empleado->area_trabajo; ?>">
                         <option value="">[--Selecione una opción--]</option>
                         <option value="Gerencia">Gerencia</option>
-                        <option value="Cocina">Cocina</option>
                         <option value="Atencion">Atencion</option>
                         <option value="Administracion">Administración</option>
                     </select>

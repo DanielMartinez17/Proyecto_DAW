@@ -12,9 +12,19 @@ class Informe extends Controller
         $this->view->render('informe/index');
     }
 
-   // function verProductos()
-   // { 
-   //     $this->view->render('carro/index');
-   // }
+   function verFactura()
+    { 
+        $this->view->render('informe/factura');
+    }
+
+    function verVenta()
+    { 
+        $this->view->render('informe/ventas');
+    }
+
+    function verProducto()
+    { 
+        $this->view->render('informe/productos');
+    }
 }
 ?>

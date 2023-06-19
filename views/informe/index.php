@@ -18,14 +18,14 @@ $pdf->SetFillColor(232,232,232);
 	$pdf->SetFont('Arial','B',12);
 	$pdf->Cell(50,6,'Nombre',1,0,'C',1);
 	$pdf->Cell(50,6,'Apellido',1,0,'C',1);
-	$pdf->Cell(50,6,'Área',1,1,'C',1);
+	$pdf->Cell(50,6,utf8_decode('Área'),1,1,'C',1);
 	
 	$pdf->SetFont('Arial','',10);
 
     while($row = $resultado->fetch_assoc())
 	{
 		$pdf->Cell(50,6,utf8_decode($row['nombres']),1,0,'C');
-		$pdf->Cell(50,6,$row['apellidos'],1,0,'C');
+		$pdf->Cell(50,6,utf8_decode($row['apellidos']),1,0,'C');
 		$pdf->Cell(50,6,utf8_decode($row['area_trabajo']),1,1,'C');
 	}
 $pdf->Output();

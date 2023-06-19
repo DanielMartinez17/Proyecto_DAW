@@ -18,7 +18,18 @@ if(!isset($_SESSION['user_id'])){
 </head>
 <body>
 
-    <?php require 'views/header.php'; ?>
+<?php
+
+$tipo = $_SESSION['user_id'];
+
+if ($tipo['area_trabajo'] == "Administracion") {
+    require 'views/header.php';
+} elseif ($tipo['area_trabajo'] == "Atencion") {
+    require 'views/header2.php';
+}elseif ($tipo['area_trabajo'] == "Gerencia") {
+    require 'views/header3.php';
+}
+?>
 
     <div id="main">
         <h1 class="center success">

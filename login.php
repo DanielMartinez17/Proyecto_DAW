@@ -41,6 +41,8 @@ if (isset($_POST['login'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mr. Potato</title>
+    <link rel="shortcut icon" type="image/png" href="./logo.ico"/>
+
 
     <!--<link href='./estilo.css' rel='stylesheet'>-->
 
@@ -97,17 +99,6 @@ if (isset($_POST['login'])) {
         </div>
     </div>
 
-    <!--<form method="post" action="" name="signin-form">
-    <div class="form-element">
-        <label>Username</label>
-        <input type="text" name="username" required />
-    </div>
-    <div class="form-element">
-        <label>Password</label>
-        <input type="password" name="password" required />
-    </div>
-    <button type="submit" name="login" value="login">Log In</button>
-</form>-->
 </body>
 
 </html>

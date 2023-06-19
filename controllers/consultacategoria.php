@@ -60,9 +60,9 @@ class ConsultaCategoria extends Controller{
             //$this->view->mensaje = "No se pudo eliminar al alumno";
         }
 
-        //$this->render();
+        $this->view->render('consultacategoria/eliminar');
 
-        echo $mensaje;
+        //echo $mensaje;
     }
 
     

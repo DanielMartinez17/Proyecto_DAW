@@ -30,7 +30,9 @@ class App{
             $nparam = sizeof($url);
             // si se llama a un método
             if($nparam > 1){
-                // hay parámetros
+                
+                try {
+                    // hay parámetros
                 if($nparam > 2){
                     $param = [];
                     for($i = 2; $i < $nparam; $i++){
@@ -40,6 +42,9 @@ class App{
                 }else{
                     // solo se llama al método
                     $controller->{$url[1]}();
+                }
+                } catch (\Throwable $e) {
+                    $controller = new Errores();
                 }
             }else{
                 // si se llama a un controlador

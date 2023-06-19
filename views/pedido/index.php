@@ -7,26 +7,7 @@ if (!isset($_SESSION['user_id'])) {
 } else {
 
 }
-
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "mr_potato";
-
-// Crear conexión
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Verificar conexión
-if ($conn->connect_error) {
-    die("Conexión fallida: " . $conn->connect_error);
-}
-
-// Realizar consulta SQL
-$sql = "SELECT * FROM categoria WHERE estado = 1";
-$resultado = $conn->query($sql);
-
-$conn->close();
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -71,20 +52,16 @@ $conn->close();
         require 'views/header3.php';
     }
     ?>
+
     <section class="home-section">
         <div class="home-content">
-            <br>
             <div>
                 <?php echo $this->mensaje; ?>
             </div>
+            <br>
             <div class="container caja">
                 <br>
                 <div class="row">
-                    <div class="col-lg-12">
-                        <a class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                            style="padding: 15px; font-size: larger; "><i
-                                class="fa-solid fa-file-circle-plus fa-xl"></i>Nuevo</a>
-                    </div>
                     <br><br><br><br>
                     <div class="col-auto">
                         <label for="num_registros" class="col-form-label">Mostrar: </label>
@@ -123,12 +100,8 @@ $conn->close();
                                     <tr>
                                         <th class="sort asc">ID</th>
                                         <th class="sort asc">Nombre</th>
-                                        <th class="sort asc">Precio</th>
-                                        <th class="sort asc">STOCK</th>
-                                        <th class="sort asc">Imagen</th>
-                                        <th class="sort asc">Categoria</th>
-                                        <th ></th>
-
+                                        <th class="sort asc">Estado</th>
+                                        <th class="sort asc"></th>
                                     </tr>
                                 </thead>
                                 <tbody id="content">
@@ -136,79 +109,21 @@ $conn->close();
                             </table>
                         </div>
                     </div>
-                    
                 </div>
                 <div class="row">
-                        <div class="col-6">
-                            <label id="lbl-total"></label>
-                        </div>
-
-                        <div class="col-6" id="nav-paginacion"></div>
-
-                        <input type="hidden" id="pagina" value="1">
-                        <input type="hidden" id="orderCol" value="0">
-                        <input type="hidden" id="orderType" value="asc">
+                    <div class="col-6">
+                        <label id="lbl-total"></label>
                     </div>
+
+                    <div class="col-6" id="nav-paginacion"></div>
+
+                    <input type="hidden" id="pagina" value="1">
+                    <input type="hidden" id="orderCol" value="0">
+                    <input type="hidden" id="orderType" value="asc">
+                </div>
             </div>
         </div>
     </section>
-
-
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-scrollable">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Agregar Producto</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="registro" name="registro" autocomplete="off"
-                        action="<?php echo constant('URL'); ?>producto/agregarProd" method="POST"
-                        enctype="multipart/form-data">
-                        <div class="form-group">
-                            <label for="nombre">Nombre</label>
-                            <input type="text" class="form form-control" name="nombre" id="nombre" autofocus required>
-                        </div>
-                        <br>
-                        <div class="form-group">
-                            <label for="precio">Precio</label>
-                            <input type="number" step="0.01" class="form form-control" name="precio" id="precio"
-                                required>
-                        </div>
-                        <br>
-                        <div class="form-group">
-                            <label for="stok">STOCK</label>
-                            <input type="number" class="form form-control" name="stok" id="stok" required>
-                        </div>
-                        <br>
-                        <div class="form-group">
-                            <label for="imagen">Imagen</label>
-                            <input type="file" class="form form-control" name="imagen" id="imagen" required>
-                        </div>
-                        <br>
-                        <div class="form-group">
-                            <label for="id_categoria">Categoria</label>
-                            <select class="form form-control" name="id_categoria" id="id_categoria">
-                                <?php
-                                while ($fila = $resultado->fetch_assoc()) {
-                                    echo "<option value='" . $fila["id_categoria"] . "'>" . $fila["nombre"] . $fila["id_categoria"] . "</option>";
-                                }
-                                ?>
-                            </select>
-                        </div>
-                        <br>
-
-                </div>
-                <div class="modal-footer">
-                    <div class="form form-group">
-                        <button class="btn btn-primary" id="Agregar" name="Agregar" type="submit">Agregar</button>
-                    </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-
         <script>
             /* Llamando a la función getData() */
             getData()
@@ -235,7 +150,7 @@ $conn->close();
                     pagina = 1
                 }
 
-                let url = "<?php echo constant('URL') ?>views/consultaproducto/load.php"
+                let url = "<?php echo constant('URL') ?>views/pedido/load.php"
                 let formaData = new FormData()
                 formaData.append('campo', input)
                 formaData.append('registros', num_registros)

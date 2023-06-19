@@ -65,9 +65,9 @@ class ConsultaEmpleado extends Controller{
             //$this->view->mensaje = "No se pudo eliminar al alumno";
         }
 
-        //$this->render();
+        $this->view->render('consultaempleado/eliminar');
 
-        echo $mensaje;
+        //echo $mensaje;
     }
 }
 

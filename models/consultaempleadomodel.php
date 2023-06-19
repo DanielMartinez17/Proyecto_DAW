@@ -63,7 +63,6 @@ class ConsultaEmpleadoModel extends Model
     public function update($item)
     {
         $a = $item['id_empleado'];
-        echo $a;
         $prueba = $this->getById($a);
 
         $contra = $prueba->contrasena;

@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/Proyecto_DAW/views/Error_404/estilo.css">
     <title>404 Not Found</title>
+    <link rel="shortcut icon" type="image/png" href="../logo.ico"/>
 </head>
 
 <body>

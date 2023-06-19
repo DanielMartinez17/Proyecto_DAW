@@ -14,7 +14,7 @@ class ConsultaProductoModel extends Model
     {
         $items = [];
         try {
-            $query = $this->db->connect()->query('SELECT * FROM producto');
+            $query = $this->db->connect()->query('SELECT * FROM producto WHERE estado = 1');
 
             while ($row = $query->fetch()) {
                 $item = new Producto();
@@ -98,7 +98,7 @@ class ConsultaProductoModel extends Model
 
     public function delete($id)
     {
-        $query = $this->db->connect()->prepare('DELETE FROM producto WHERE id_producto = :id_producto');
+        $query = $this->db->connect()->prepare('UPDATE producto SET estado = 0 WHERE id_producto = :id_producto');
         try {
             $query->execute([
                 'id_producto' => $id

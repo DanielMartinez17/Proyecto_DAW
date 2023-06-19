@@ -23,21 +23,21 @@ include "php/conection.php";
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-				
+
 				<h1>Productos</h1>
 				<a class='btn btn-info' href="<?php echo constant('URL'); ?>index"><i
-							class="fa-solid fa-pen-to-square fa-xl" style="color: #ffffff;"></i>
-						Regresar</a>
+						class="fa-solid fa-pen-to-square fa-xl" style="color: #ffffff;"></i>
+					Regresar</a>
 				<a href="<?php echo constant('URL'); ?>carro/verCarrito" class="btn btn-warning">Ver Carrito</a>
-				
-					
-				
+
 				<br><br>
 				<?php
-				/*
-				 * Esta es la consula para obtener todos los productos de la base de datos.
-				 */
-				$productos = $con->query("SELECT P.*, C.nombre AS nombre_cat  FROM producto P INNER JOIN categoria C ON P.id_categoria = C.id_categoria WHERE P.estado = 1 ORDER BY P.nombre ");
+
+				//Esta es la consulta para obtener todos los productos de la base de datos.
+				
+					$productos = $con->query("SELECT P.*, C.nombre AS nombre_cat  FROM producto P INNER JOIN categoria C ON P.id_categoria = C.id_categoria WHERE P.estado = 1 ORDER BY P.nombre ");
+				
+				
 				?>
 
 
@@ -70,7 +70,7 @@ include "php/conection.php";
 												<p class="text-muted mb-0">
 													<?php
 													if ($row->stok > 0) {
-														echo "<h4 style='color: green;' >Disponible</h4>";
+														echo "<h4 style='color: green;' >Disponible: </h4>" . $row->stok;
 													}
 													if ($row->stok <= 0) {
 														echo "<h4 style='color: red;' >Agotado</h4>";

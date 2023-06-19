@@ -138,11 +138,14 @@ include "php/conection.php";
 	
 							foreach ($_SESSION["cart"] as $c) {
 								$q1 = $con->query("INSERT INTO detalle_venta(id_venta,id_product,cantidad) value($cart_id, $c[product_id],$c[q])");
+								$sql = $con->query("UPDATE producto SET stok = stok - ".$c['q']." WHERE id_producto = ". $c['product_id']);
 							}
+							$_SESSION["factura"]= $cart_id;
+
 							unset($_SESSION["cart"]);
 						}
 					}
-					print "<script>alert('Venta procesada exitosamente');window.location='" . constant('URL') . "carro/verCarrito';</script>";
+					print "<script>alert('Venta procesada exitosamente');window.location='" . constant('URL') . "informe/verFactura';</script>";
 				}
 				?>
 
