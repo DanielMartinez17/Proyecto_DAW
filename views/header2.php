@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Mr. Potato</title>
-  <link rel="shortcut icon" type="image/png" href="./logo.ico"/>
+  <link rel="shortcut icon" type="image/png" href="./logo.ico" />
   <link rel="stylesheet" href="<?php echo constant('URL'); ?>/public/css/main.css">
 
 
@@ -54,39 +54,9 @@
           <li><a class="link_name" href="<?php echo constant('URL'); ?>index"">Inicio</a></li>
         </ul>
       </li>
-
-      <li>
-        <a href=" <?php echo constant('URL'); ?>consultacategoria">
-              <i class='bx bx-collection'></i>
-              <span class="link_name">Categoria</span>
-            </a>
-            <ul class="sub-menu blank">
-              <li><a class="link_name" href="<?php echo constant('URL'); ?>consultacategoria">Categoria</a></li>
-            </ul>
-          </li>
-
+        
           <li>
-            <a href="<?php echo constant('URL'); ?>consultaproducto">
-              <i class='bx bx-book-alt'></i>
-              <span class="link_name">Producto</span>
-            </a>
-            <ul class="sub-menu blank">
-              <li><a class="link_name" href="<?php echo constant('URL'); ?>consultaproducto">Producto</a></li>
-            </ul>
-          </li>
-
-          <li>
-            <a href="<?php echo constant('URL'); ?>consultaempleado">
-              <i class='bx bx-user'></i>
-              <span class="link_name">Empleado</span>
-            </a>
-            <ul class="sub-menu blank">
-              <li><a class="link_name" href="<?php echo constant('URL'); ?>consultaempleado">Empleado</a></li>
-            </ul>
-          </li>
-
-          <li>
-            <a href="<?php echo constant('URL'); ?>carro">
+            <a href=" <?php echo constant('URL'); ?>carro">
               <i class='bx bx-cart'></i>
               <span class="link_name">Venta</span>
             </a>
@@ -94,7 +64,7 @@
               <li><a class="link_name" href="<?php echo constant('URL'); ?>carro">Venta</a></li>
             </ul>
           </li>
-        
+
           <li>
             <a href="<?php echo constant('URL'); ?>pedido">
               <i class='bx bx-list-ul'></i>
@@ -123,7 +93,8 @@
                   <?php echo $tipo['area_trabajo']; ?>
                 </div>
               </div>
-              <button onclick="confirmarAccion()" style="background-color: #b02a37;" ><i class='bx bx-log-out'></i></button>
+              <button onclick="confirmarAccion()" style="background-color: #b02a37;"><i
+                  class='bx bx-log-out'></i></button>
               <script type="text/javascript">
                 // Función que muestra la alerta y ejecuta el código PHP
                 function confirmarAccion() {

@@ -14,7 +14,7 @@ class Pedido extends Controller
 
     function verVenta()
     { 
-        $this->view->render('pedido/detalle');
+        $this->view->render('pedido/detProd');
     }
     function eliminarVenta($param = null){
         $empleado = $param[0];

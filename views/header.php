@@ -77,6 +77,16 @@
           </li>
 
           <li>
+            <a href="<?php echo constant('URL'); ?>stok">
+              <i class='bx bx-category-alt'></i>
+              <span class="link_name">STOK</span>
+            </a>
+            <ul class="sub-menu blank">
+              <li><a class="link_name" href="<?php echo constant('URL'); ?>stok">STOK</a></li>
+            </ul>
+          </li>
+
+          <li>
             <a href="<?php echo constant('URL'); ?>consultaempleado">
               <i class='bx bx-user'></i>
               <span class="link_name">Empleado</span>
